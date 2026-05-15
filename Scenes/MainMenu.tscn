@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cn5jtkco6d0ve"]
+
+[ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/menuBkg.png" id="1_tt5f1"]
+
+[node name="MainMenu" type="Control" unique_id=315031595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1998566543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tt5f1")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=279883063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1682732082]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1812677807]
+layout_mode = 2
