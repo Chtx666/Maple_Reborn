@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://cn5jtkco6d0ve"]
 
-[ext_resource type="Script" uid="uid://c0wjo7yuv1jgt" path="res://Scripts/mainMenu.gd" id="1_8saeu"]
-[ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/menuBkg.png" id="1_tt5f1"]
-[ext_resource type="FontFile" uid="uid://c5j5ga7maqcem" path="res://Assets/SimplifiedChinese/SourceHanSerifSC-Medium.otf" id="3_ghw46"]
-[ext_resource type="FontFile" uid="uid://bj6c0ctdjjeud" path="res://Assets/SimplifiedChinese/SourceHanSerifSC-Bold.otf" id="4_ghw46"]
+[ext_resource type="Script" uid="uid://c0wjo7yuv1jgt" path="res://Scripts/MainMenu.gd" id="1_8saeu"]
+[ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/menu_bkg.png" id="1_tt5f1"]
+[ext_resource type="FontFile" uid="uid://dqpf22eastphj" path="res://Assets/Fonts/LXGWWenKai-Regular.ttf" id="3_8saeu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
-bg_color = Color(1, 0.8039216, 0.8156863, 0.7490196)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0, 0, 0, 0.38039216)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw46"]
@@ -25,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8saeu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1998566543]
+[node name="Background" type="TextureRect" parent="." unique_id=1998566543]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,28 +55,28 @@ layout_mode = 2
 [node name="StartBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=577154932]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "开始游戏"
 
 [node name="AchvBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1405401795]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "存档"
 
 [node name="SettingBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1889127240]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "设置"
 
 [node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1750976519]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "退出游戏"
 
@@ -88,17 +87,17 @@ offset_bottom = 181.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 
-[node name="Label" type="Label" parent="MarginContainer2" unique_id=564237359]
+[node name="Title" type="Label" parent="MarginContainer2" unique_id=564237359]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 80
 text = "Maple"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Confirmation" type="Panel" parent="." unique_id=1757318676]
+[node name="QuitPopup" type="Panel" parent="." unique_id=1757318676]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -114,7 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
-[node name="Confirm" type="Button" parent="Confirmation" unique_id=583485310]
+[node name="ConfirmBtn" type="Button" parent="QuitPopup" unique_id=583485310]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -129,11 +128,11 @@ offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "确认"
 
-[node name="Cancel" type="Button" parent="Confirmation" unique_id=635623787]
+[node name="CancelBtn" type="Button" parent="QuitPopup" unique_id=635623787]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -148,12 +147,12 @@ offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_ghw46")
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 keep_pressed_outside = true
 text = "取消"
 
-[node name="Label" type="Label" parent="Confirmation" unique_id=1440068398]
+[node name="Label" type="Label" parent="QuitPopup" unique_id=1440068398]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -167,12 +166,12 @@ offset_right = 129.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.9217743, 0.35885575, 0.29186088, 1)
-theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
-text = "确定要退出吗喵？"
+text = "确定退出 Maple 吗?"
 
-[node name="Shadow" type="Panel" parent="Confirmation" unique_id=1755748191]
+[node name="Shadow" type="Panel" parent="QuitPopup" unique_id=1755748191]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -193,5 +192,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AchvBtn" to="." method="_on_achv_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="Confirmation/Confirm" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="Confirmation/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="QuitPopup/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="QuitPopup/CancelBtn" to="." method="_on_cancel_btn_pressed"]
