@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/menuBkg.png" id="1_tt5f1"]
 [ext_resource type="FontFile" uid="uid://c5j5ga7maqcem" path="res://Assets/SimplifiedChinese/SourceHanSerifSC-Medium.otf" id="3_ghw46"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(1, 0.8039216, 0.8156863, 0.7490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
 [node name="MainMenu" type="Control" unique_id=315031595]
 layout_mode = 3
 anchors_preset = 15
@@ -85,6 +93,19 @@ theme_override_font_sizes/font_size = 80
 text = "Maple"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Confirm" type="Control" parent="." unique_id=514026794]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Confirm" unique_id=1097573751]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 245.0
+offset_right = 630.0
+offset_bottom = 393.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AchvBtn" to="." method="_on_achv_btn_pressed"]

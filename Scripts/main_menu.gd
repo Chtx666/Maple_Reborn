@@ -19,3 +19,4 @@ func _on_setting_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
 func _on_quit_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+	get_tree().quit()
