@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn5jtkco6d0ve"]
 
-[ext_resource type="Script" uid="uid://c0wjo7yuv1jgt" path="res://Scripts/main_menu.gd" id="1_8saeu"]
+[ext_resource type="Script" uid="uid://c0wjo7yuv1jgt" path="res://Scripts/mainMenu.gd" id="1_8saeu"]
 [ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/menuBkg.png" id="1_tt5f1"]
 [ext_resource type="FontFile" uid="uid://c5j5ga7maqcem" path="res://Assets/SimplifiedChinese/SourceHanSerifSC-Medium.otf" id="3_ghw46"]
 [ext_resource type="FontFile" uid="uid://bj6c0ctdjjeud" path="res://Assets/SimplifiedChinese/SourceHanSerifSC-Bold.otf" id="4_ghw46"]
@@ -12,6 +12,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw46"]
+bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
 
 [node name="MainMenu" type="Control" unique_id=315031595]
 layout_mode = 3
@@ -95,21 +98,8 @@ text = "Maple"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MessageBox" type="Control" parent="." unique_id=514026794]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Confirmation" type="Panel" parent="MessageBox" unique_id=1097573751]
+[node name="Confirmation" type="Panel" parent="." unique_id=1757318676]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -124,7 +114,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
-[node name="Confirm" type="Button" parent="MessageBox/Confirmation" unique_id=1374628542]
+[node name="Confirm" type="Button" parent="Confirmation" unique_id=583485310]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,7 +133,8 @@ theme_override_fonts/font = ExtResource("3_ghw46")
 theme_override_font_sizes/font_size = 32
 text = "确认"
 
-[node name="Cancel" type="Button" parent="MessageBox/Confirmation" unique_id=958183224]
+[node name="Cancel" type="Button" parent="Confirmation" unique_id=635623787]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,9 +150,11 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_ghw46")
 theme_override_font_sizes/font_size = 32
+keep_pressed_outside = true
 text = "取消"
 
-[node name="Label" type="Label" parent="MessageBox/Confirmation" unique_id=1415376265]
+[node name="Label" type="Label" parent="Confirmation" unique_id=1440068398]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -178,7 +172,26 @@ theme_override_fonts/font = ExtResource("4_ghw46")
 theme_override_font_sizes/font_size = 32
 text = "确定要退出吗喵？"
 
+[node name="Shadow" type="Panel" parent="Confirmation" unique_id=1755748191]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AchvBtn" to="." method="_on_achv_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Confirmation/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Confirmation/Cancel" to="." method="_on_cancel_pressed"]
