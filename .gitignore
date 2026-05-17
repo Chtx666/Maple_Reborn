@@ -19,3 +19,6 @@ mono_crash.*.json
 
 # FuCk ApPlE !!
 .DS_Store
+
+# FUCK Jetbrains!
+.idea/
