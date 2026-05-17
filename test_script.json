@@ -1,0 +1,112 @@
+{
+  "scene_id": "test_prologue",
+  "start_node": "node_001",
+  "nodes": {
+	"node_001": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": null,
+	  "speaker": null,
+	  "text": "枫坂的坡道上，阳光把地面晒得暖洋洋的。远处能看到海，还有被风吹散的云。",
+	  "next": "node_002"
+	},
+	"node_002": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": null,
+	  "text": "长椅旁站着一个女孩，正抬头望着那棵最大的枫树。",
+	  "next": "node_003"
+	},
+	"node_003": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "少女",
+	  "text": "……啊，你好。你也是来散步的吗？",
+	  "next": "node_004"
+	},
+	"node_004": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "少女",
+	  "text": "我叫枫——嗯，和这块路牌一样的字。据说我出生那天，院子里的枫叶红得正好。",
+	  "next": "node_005"
+	},
+	"node_005": {
+	  "type": "choice",
+	  "text": "（枫微微歪着头，等着你的回应……）",
+	  "options": [
+		{
+		  "text": "名字真好听，像秋天的颜色",
+		  "target_node": "node_006_a",
+		  "condition": null,
+		  "set_variable": { "kaede_favor": 1, "flag_compliment_name": true }
+		},
+		{
+		  "text": "那你是这棵树的守护者？",
+		  "target_node": "node_006_b",
+		  "condition": null,
+		  "set_variable": { "kaede_favor": 1, "flag_joke_guardian": true }
+		}
+	  ]
+	},
+	"node_006_a": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "枫",
+	  "text": "……谢谢。你是第一个这么说的人呢。",
+	  "next": "node_007"
+	},
+	"node_006_b": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "枫",
+	  "text": "守护者？哈哈，那我可不够格。我只是在找一片特别的叶子。",
+	  "next": "node_007"
+	},
+	"node_007": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "枫",
+	  "text": "其实……每年这个时候，我都会来这里挑一片最好看的枫叶夹进书里。算是小小的仪式吧。",
+	  "next": "node_008"
+	},
+	"node_008": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "枫",
+	  "text": "不过今年怎么也找不到满意的那一片。也许……该换个角度看看？",
+	  "next": "node_009"
+	},
+	"node_009": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": "krk.png",
+	  "speaker": "枫",
+	  "text": "呐，要不要帮我一起找？两个人的话，说不定运气会好一些。",
+	  "next": "node_010"
+	},
+	"node_010": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": null,
+	  "speaker": null,
+	  "text": "风吹过枝头，几片叶子旋转着落在她肩上。这一刻，像是被谁刻意安排过的邂逅。",
+	  "next": "test_end"
+	},
+	"test_end": {
+	  "type": "dialogue",
+	  "bg": "menu_bkg.png",
+	  "character": null,
+	  "speaker": null,
+	  "text": "——而你尚不知道，这片枫叶的故事，才刚刚开始。",
+	  "next": null
+	}
+  }
+}

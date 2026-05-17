@@ -22,3 +22,6 @@ mono_crash.*.json
 
 # FUCK Jetbrains!
 .idea/
+
+#Others
+.workbuddy/
