@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbl6xu01ha1le"
-path="res://.godot/imported/krk.png-cd236736c05a70ae5170b7c59cfcbe6b.ctex"
+uid="uid://c422mraxbbbu5"
+path="res://.godot/imported/menu_bg.png-b1e07a733263f8ec988e345cc0c08c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/krk.png"
-dest_files=["res://.godot/imported/krk.png-cd236736c05a70ae5170b7c59cfcbe6b.ctex"]
+source_file="res://Assets/Pictures/menu_bg.png"
+dest_files=["res://.godot/imported/menu_bg.png-b1e07a733263f8ec988e345cc0c08c4d.ctex"]
 
 [params]
 

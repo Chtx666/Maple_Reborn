@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://wwbsnyqblc4r"]
+
+[ext_resource type="Script" uid="uid://dba3l17kobu4r" path="res://Scripts/GameProcess.gd" id="1_tmtf5"]
+[ext_resource type="Texture2D" uid="uid://c422mraxbbbu5" path="res://Assets/Pictures/menu_bg.png" id="2_o40bh"]
+[ext_resource type="Texture2D" uid="uid://bbl6xu01ha1le" path="res://Assets/Pictures/fuu_1.png" id="3_30iao"]
+[ext_resource type="FontFile" uid="uid://dqpf22eastphj" path="res://Assets/Fonts/LXGWWenKai-Regular.ttf" id="4_yudex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0dvh"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[node name="GameProcess" type="Control" unique_id=1914459076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tmtf5")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1318175302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o40bh")
+expand_mode = 1
+
+[node name="Character" type="TextureRect" parent="." unique_id=1752183356]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.75
+offset_top = -471.6714
+offset_right = 180.75
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_30iao")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1499835295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="TextPanel" type="Panel" parent="MarginContainer" unique_id=1277719180]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0dvh")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextPanel" unique_id=31586835]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Text" type="Label" parent="MarginContainer/TextPanel/MarginContainer" unique_id=74892178]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "111"
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1824300812]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 316.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 900
+
+[node name="SpeakerPanel" type="Panel" parent="MarginContainer2" unique_id=388539869]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0dvh")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/SpeakerPanel" unique_id=191084172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Speaker" type="Label" parent="MarginContainer2/SpeakerPanel/MarginContainer" unique_id=256720905]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "??"
+
+[connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
+[connection signal="gui_input" from="MarginContainer/TextPanel" to="." method="_on_text_panel_gui_input"]

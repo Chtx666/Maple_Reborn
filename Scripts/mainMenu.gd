@@ -10,13 +10,15 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/MainProcess.tscn")
+	get_tree().change_scene_to_file("res://Scenes/GameProcess.tscn")
 
 func _on_achv_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+	pass
+	# get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
 
 func _on_setting_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+	pass
+	# get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
 
 func _on_quit_btn_pressed() -> void:
 	quit_popup.visible = true
