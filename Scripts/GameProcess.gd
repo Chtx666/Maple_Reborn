@@ -1,11 +1,16 @@
 extends Control
 
+# UI声明
 var background
 var character
 var text
 var text_panel
 var speaker
 var speaker_panel
+var chapter_label
+var section_label
+
+# 台本声明
 var nodes: Dictionary
 var current_node
 var next_node
@@ -19,6 +24,8 @@ func _ready() -> void:
 	text_panel = $TextContainer/TextPanel
 	speaker = $SpeakerContainer/SpeakerPanel/MarginContainer/Speaker
 	speaker_panel = $SpeakerContainer/SpeakerPanel
+	chapter_label = $VBoxContainer/ChapterName
+	section_label = $VBoxContainer/SectionName
 	
 	var json_path = "res://test_script.json"
 	var json_string = ""
@@ -54,6 +61,8 @@ func game_process() -> void:
 	var character_name = node["character"] if node.has("character") && typeof(node["character"]) != TYPE_NIL else null
 	var speaker_name = node["speaker"] if node.has("speaker") && typeof(node["speaker"]) != TYPE_NIL else null
 	var text_name = node["text"] if node.has("text") else null
+	var chapter = node["chapter"] if node.has("chapter") else null
+	var section = node["section"] if node.has("section") else null
 	
 	if bg_name == null:
 		background.texture = null
@@ -65,17 +74,12 @@ func game_process() -> void:
 	else:
 		character.texture = load("res://Assets/Pictures/fuu_1.png")
 	
-	if speaker_name == null:
-		speaker_panel.visible = false
-	else:
-		speaker.text = speaker_name
-		speaker_panel.visible = true
+	speaker.text = speaker_name if speaker_name != null else "..."
 		
-	if text_name == null:
-		text_panel.visible = false
-	else:
-		text.text = text_name
-		text_panel.visible = true
+	text.text = text_name if text_name != null else "......"
+		
+	chapter_label.text = str(chapter) if chapter != null else ""
+	section_label.text = str(section) if section != null else ""
 		
 	next_node = node["next"] if node.has("next") else null
 
