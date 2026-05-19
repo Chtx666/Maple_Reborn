@@ -15,10 +15,10 @@ var node: Dictionary
 func _ready() -> void:
 	background = $Background
 	character = $Character
-	text = $MarginContainer/TextPanel/MarginContainer/Text
-	text_panel = $MarginContainer/TextPanel
-	speaker = $MarginContainer2/SpeakerPanel/MarginContainer/Speaker
-	speaker_panel = $MarginContainer2/SpeakerPanel
+	text = $TextContainer/TextPanel/MarginContainer/Text
+	text_panel = $TextContainer/TextPanel
+	speaker = $SpeakerContainer/SpeakerPanel/MarginContainer/Speaker
+	speaker_panel = $SpeakerContainer/SpeakerPanel
 	
 	var json_path = "res://test_script.json"
 	var json_string = ""
@@ -45,8 +45,8 @@ func _process(delta: float) -> void:
 	pass
 
 func game_process() -> void:
-	if !nodes.has(current_node):
-		print("节点未找到" + current_node)
+	if current_node == null || !nodes.has(current_node):
+		print("节点未找到: " + str(current_node))
 		return
 	
 	node = nodes[current_node]
@@ -82,5 +82,7 @@ func game_process() -> void:
 
 func _on_text_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
+		if next_node == null:
+			return
 		current_node = next_node
 		game_process()

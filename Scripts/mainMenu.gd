@@ -6,7 +6,7 @@ func _ready() -> void:
 	quit_popup = get_node("QuitPopup")
 	quit_popup.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_start_btn_pressed() -> void:
