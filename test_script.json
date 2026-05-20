@@ -41,12 +41,12 @@
 					"options": [
 						{
 							"text": "名字真好听，像秋天的颜色",
-							"target": "1-5a",
+							"next": "1-5a",
 							"set_variable": { "fuu_favor": 1, "flag_compliment_name": true }
 						},
 						{
 							"text": "那你是这棵树的守护者？",
-							"target": "1-5b",
+							"next": "1-5b",
 							"set_variable": { "fuu_favor": 1, "flag_joke_guardian": true }
 						}
 					]
@@ -109,12 +109,12 @@
 					"options": [
 						{
 							"text": "嗯，顺路一起走吧",
-							"target": "2-3a",
+							"next": "2-3a",
 							"set_variable": { "fuu_favor": 1, "flag_walk_home": true }
 						},
 						{
 							"text": "只是今天想绕远路而已",
-							"target": "2-3b",
+							"next": "2-3b",
 							"set_variable": { "flag_detour": true }
 						}
 					]
@@ -190,12 +190,12 @@
 					"options": [
 						{
 							"text": "你的肩膀湿了，把伞往那边挪一点",
-							"target": "1-4a",
+							"next": "1-4a",
 							"set_variable": { "fuu_favor": 2, "flag_care_umbrella": true }
 						},
 						{
 							"text": "……谢谢",
-							"target": "1-4b",
+							"next": "1-4b",
 							"set_variable": { "fuu_favor": 1 }
 						}
 					]
@@ -258,12 +258,12 @@
 					"options": [
 						{
 							"text": "送给你，当作书签的候选",
-							"target": "2-3a",
+							"next": "2-3a",
 							"set_variable": { "fuu_favor": 2, "flag_gift_leaf": true }
 						},
 						{
 							"text": "只是觉得好看而已",
-							"target": "2-3b",
+							"next": "2-3b",
 							"set_variable": { "fuu_favor": 1 }
 						}
 					]

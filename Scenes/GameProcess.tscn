@@ -8,6 +8,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0dvh"]
 bg_color = Color(0, 0, 0, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmtf5"]
+bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
+
 [node name="GameProcess" type="Control" unique_id=1914459076]
 layout_mode = 3
 anchors_preset = 15
@@ -122,6 +125,19 @@ theme_override_fonts/font = ExtResource("4_yudex")
 theme_override_font_sizes/font_size = 32
 text = "hello"
 vertical_alignment = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="." unique_id=979619739]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 82.0
+offset_right = 359.0
+offset_bottom = 122.0
+
+[node name="Shadow" type="Panel" parent="OptionsContainer" unique_id=490281507]
+z_index = -1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmtf5")
 
 [connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
 [connection signal="gui_input" from="TextContainer/TextPanel" to="." method="_on_text_panel_gui_input"]
