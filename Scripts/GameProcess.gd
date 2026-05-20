@@ -15,6 +15,9 @@ var nodes: Dictionary
 var current_node
 var next_node
 var node: Dictionary
+var chapters
+var cur_chapter
+var chapter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,13 +46,19 @@ func _ready() -> void:
 		return
 		
 	var data: Dictionary = json.data
-	nodes = data["nodes"]
-	current_node = data["start_node"]
-	game_process()
+	chapters = data["chapters"]
+	cur_chapter = data["start_chapter"]
+	base_process()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
+
+func base_process() -> void:
+	chapter = chapters[cur_chapter]
+	current_node = chapter["start_node"]
+	nodes = chapter["nodes"]
+	game_process()
 
 func game_process() -> void:
 	if current_node == null || !nodes.has(current_node):
@@ -61,32 +70,36 @@ func game_process() -> void:
 	var character_name = node["character"] if node.has("character") && typeof(node["character"]) != TYPE_NIL else null
 	var speaker_name = node["speaker"] if node.has("speaker") && typeof(node["speaker"]) != TYPE_NIL else null
 	var text_name = node["text"] if node.has("text") else null
-	var chapter = node["chapter"] if node.has("chapter") else null
-	var section = node["section"] if node.has("section") else null
-	
+
 	if bg_name == null:
 		background.texture = null
 	else:
 		background.texture = load("res://Assets/Pictures/menu_bg.png")
-	
+
 	if character_name == null:
 		character.texture = null
 	else:
 		character.texture = load("res://Assets/Pictures/fuu_1.png")
-	
+
 	speaker.text = speaker_name if speaker_name != null else "..."
-		
 	text.text = text_name if text_name != null else "......"
-		
-	chapter_label.text = str(chapter) if chapter != null else ""
-	section_label.text = str(section) if section != null else ""
+
+	chapter_label.text = "Chapter " + str(cur_chapter)
+	var section_num = current_node.split("-")[0] if current_node != null else ""
+	section_label.text = "Section " + section_num
 		
 	next_node = node["next"] if node.has("next") else null
-
 
 func _on_text_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 		if next_node == null:
 			return
-		current_node = next_node
-		game_process()
+		if next_node == "end":
+			if chapter.has("next_chapter"):
+				cur_chapter = chapter["next_chapter"]
+				base_process()
+			else:
+				return
+		else:
+			current_node = next_node
+			game_process()

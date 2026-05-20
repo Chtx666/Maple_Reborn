@@ -1,388 +1,312 @@
 {
 	"title": "Maple",
-	"start_node": "1-1",
-	"nodes": {
-		"1-1": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "枫坂的坡道上，阳光把地面晒得暖洋洋的。远处能看到海，还有被风吹散的云。",
-			"next": "1-2"
-		},
-		"1-2": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": null,
-			"text": "坡道中间站着一个女孩，正抬头望着那棵最大的枫树。",
-			"next": "1-3"
-		},
-		"1-3": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "???",
-			"text": "……啊，你好。你也是来散步的吗？",
-			"next": "1-4"
-		},
-		"1-4": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "我叫枫——嗯，和这块路牌一样的字。据说我出生那天，院子里的枫叶红得正好。",
-			"next": "1-5"
-		},
-		"1-5": {
-			"chapter": 1,
-			"section": 1,
-			"type": "choice",
-			"text": "（枫微微歪着头，等着你的回应……）",
-			"options": [
-				{
-					"text": "名字真好听，像秋天的颜色",
-					"target": "1-5a",
-					"set_variable": { "fuu_favor": 1, "flag_compliment_name": true }
+	"start_chapter": "1",
+	"chapters": {
+		"1": {
+			"start_node": "1-1",
+			"next_chapter": "2",
+			"nodes": {
+				"1-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "枫坂的坡道上，阳光把地面晒得暖洋洋的。远处能看到海，还有被风吹散的云。",
+					"next": "1-2"
 				},
-				{
-					"text": "那你是这棵树的守护者？",
-					"target": "1-5b",
-					"set_variable": { "fuu_favor": 1, "flag_joke_guardian": true }
-				}
-			]
-		},
-		"1-5a": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "……谢谢。你是第一个这么说的人呢。",
-			"next": "1-6"
-		},
-		"1-5b": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "守护者？哈哈，那我可不够格。我只是在找一片特别的叶子。",
-			"next": "1-6"
-		},
-		"1-6": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "每年这个时候，我都会来这里挑一片最好看的枫叶夹进书里。算是小小的仪式吧。",
-			"next": "1-7"
-		},
-		"1-7": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "呐，要不要帮我一起找？两个人的话，说不定运气会好一些。",
-			"next": "1-8"
-		},
-		"1-8": {
-			"chapter": 1,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "风吹过枝头，几片叶子旋转着落在她肩上。这一刻，像是被谁刻意安排过的邂逅。",
-			"next": "1-9"
-		},
-		"1-9": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "放学铃声响起，走廊里一下子热闹起来。你背起书包，不自觉地走向那条坡道。",
-			"next": "1-10"
-		},
-		"1-10": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "啊，又见面了。你也走这条路回家吗？",
-			"next": "1-11"
-		},
-		"1-11": {
-			"chapter": 1,
-			"section": 2,
-			"type": "choice",
-			"text": "（枫背着书包，站在坡道口等你的回答。）",
-			"options": [
-				{
-					"text": "嗯，顺路一起走吧",
-					"target": "1-11a",
-					"set_variable": { "fuu_favor": 1, "flag_walk_home": true }
+				"1-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"text": "坡道中间站着一个女孩，正抬头望着那棵最大的枫树。",
+					"next": "1-3"
 				},
-				{
-					"text": "只是今天想绕远路而已",
-					"target": "1-11b",
-					"set_variable": { "flag_detour": true }
-				}
-			]
-		},
-		"1-11a": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "那太好了！一个人走坡道其实有点寂寞呢。",
-			"next": "1-12"
-		},
-		"1-11b": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "绕远路……？这坡道明明是捷径吧。算了，那一起走？",
-			"next": "1-12"
-		},
-		"1-12": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "对了，你知道坡道尽头那家店吗？红豆饼特别好吃，下次请你！",
-			"next": "1-13"
-		},
-		"1-13": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "……啊，到了。那，明天见？",
-			"next": "1-14"
-		},
-		"1-14": {
-			"chapter": 1,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "枫挥了挥手，转身走进小巷。夕阳把她的影子拉得很长很长。",
-			"next": "2-1"
-		},
-		"2-1": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "几天后。放学时忽然下起了雨，你没带伞，只能站在校门口发呆。",
-			"next": "2-2"
-		},
-		"2-2": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "……你怎么还在这里？没带伞吗？",
-			"next": "2-3"
-		},
-		"2-3": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "来吧，我带了。反正顺路——虽然这好像是第二次说\"顺路\"了。",
-			"next": "2-4"
-		},
-		"2-4": {
-			"chapter": 2,
-			"section": 1,
-			"type": "choice",
-			"text": "（枫把伞倾向你这边，自己的肩膀已经淋湿了一点。）",
-			"options": [
-				{
-					"text": "你的肩膀湿了，把伞往那边挪一点",
-					"target": "2-4a",
-					"set_variable": { "fuu_favor": 2, "flag_care_umbrella": true }
+				"1-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "???",
+					"text": "……啊，你好。你也是来散步的吗？",
+					"next": "1-4"
 				},
-				{
-					"text": "……谢谢",
-					"target": "2-4b",
-					"set_variable": { "fuu_favor": 1 }
-				}
-			]
-		},
-		"2-4a": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "诶？啊……没事没事，我习惯了。倒是你别淋着才好。",
-			"next": "2-5"
-		},
-		"2-4b": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "不用谢啦。一个人走雨天才更冷呢。",
-			"next": "2-5"
-		},
-		"2-5": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "你知道吗，雨天的坡道其实有另一种好看。叶子被淋湿之后，颜色会变得很深。",
-			"next": "2-6"
-		},
-		"2-6": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "……嗯，到了。伞就送你吧，我家很近了。",
-			"next": "2-7"
-		},
-		"2-7": {
-			"chapter": 2,
-			"section": 1,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "她把伞塞进你手里，小跑着消失在雨幕中。手柄上还残留着微温。",
-			"next": "2-8"
-		},
-		"2-8": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "第二天，你特意早到了坡道。手里攥着那把伞，和一片昨晚在窗台上捡到的枫叶。",
-			"next": "2-9"
-		},
-		"2-9": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "早！你怎么来得这么……等等，那是昨天的叶子？你留着了？",
-			"next": "2-10"
-		},
-		"2-10": {
-			"chapter": 2,
-			"section": 2,
-			"type": "choice",
-			"text": "（枫的眼睛亮了一下，似乎在期待什么。）",
-			"options": [
-				{
-					"text": "送给你，当作书签的候选",
-					"target": "2-10a",
-					"set_variable": { "fuu_favor": 2, "flag_gift_leaf": true }
+				"1-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "我叫枫——嗯，和这块路牌一样的字。据说我出生那天，院子里的枫叶红得正好。",
+					"next": "1-5"
 				},
-				{
-					"text": "只是觉得好看而已",
-					"target": "2-10b",
-					"set_variable": { "fuu_favor": 1 }
+				"1-5": {
+					"type": "choice",
+					"text": "（枫微微歪着头，等着你的回应……）",
+					"options": [
+						{
+							"text": "名字真好听，像秋天的颜色",
+							"target": "1-5a",
+							"set_variable": { "fuu_favor": 1, "flag_compliment_name": true }
+						},
+						{
+							"text": "那你是这棵树的守护者？",
+							"target": "1-5b",
+							"set_variable": { "fuu_favor": 1, "flag_joke_guardian": true }
+						}
+					]
+				},
+				"1-5a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……谢谢。你是第一个这么说的人呢。",
+					"next": "1-6"
+				},
+				"1-5b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "守护者？哈哈，那我可不够格。我只是在找一片特别的叶子。",
+					"next": "1-6"
+				},
+				"1-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "每年这个时候，我都会来这里挑一片最好看的枫叶夹进书里。算是小小的仪式吧。",
+					"next": "1-7"
+				},
+				"1-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "呐，要不要帮我一起找？两个人的话，说不定运气会好一些。",
+					"next": "1-8"
+				},
+				"1-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "风吹过枝头，几片叶子旋转着落在她肩上。这一刻，像是被谁刻意安排过的邂逅。",
+					"next": "2-1"
+				},
+				"2-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "放学铃声响起，走廊里一下子热闹起来。你背起书包，不自觉地走向那条坡道。",
+					"next": "2-2"
+				},
+				"2-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "啊，又见面了。你也走这条路回家吗？",
+					"next": "2-3"
+				},
+				"2-3": {
+					"type": "choice",
+					"text": "（枫背着书包，站在坡道口等你的回答。）",
+					"options": [
+						{
+							"text": "嗯，顺路一起走吧",
+							"target": "2-3a",
+							"set_variable": { "fuu_favor": 1, "flag_walk_home": true }
+						},
+						{
+							"text": "只是今天想绕远路而已",
+							"target": "2-3b",
+							"set_variable": { "flag_detour": true }
+						}
+					]
+				},
+				"2-3a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "那太好了！一个人走坡道其实有点寂寞呢。",
+					"next": "2-4"
+				},
+				"2-3b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "绕远路……？这坡道明明是捷径吧。算了，那一起走？",
+					"next": "2-4"
+				},
+				"2-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "对了，你知道坡道尽头那家店吗？红豆饼特别好吃，下次请你！",
+					"next": "2-5"
+				},
+				"2-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……啊，到了。那，明天见？",
+					"next": "2-6"
+				},
+				"2-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "枫挥了挥手，转身走进小巷。夕阳把她的影子拉得很长很长。",
+					"next": "end"
 				}
-			]
+			}
 		},
-		"2-10a": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "……！嗯，这是我收到过最好看的枫叶。比我自己找到的都好。",
-			"next": "2-11"
-		},
-		"2-10b": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "好看？那……要不要给我看看？说不定能当书签呢。",
-			"next": "2-11"
-		},
-		"2-11": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "其实，我一直觉得枫叶像一封信。颜色越深，想说的话就越多。",
-			"next": "2-12"
-		},
-		"2-12": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": "fuu_1",
-			"speaker": "枫",
-			"text": "所以这封信……我就收下啦。谢谢你。",
-			"next": "2-13"
-		},
-		"2-13": {
-			"chapter": 2,
-			"section": 2,
-			"type": "dialogue",
-			"bg": "menu_bg",
-			"character": null,
-			"speaker": null,
-			"text": "她小心翼翼地把叶子夹进书页。那一刻，风停了，阳光正好穿过枝丫。",
-			"next": null
+		"2": {
+			"start_node": "1-1",
+			"nodes": {
+				"1-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "几天后。放学时忽然下起了雨，你没带伞，只能站在校门口发呆。",
+					"next": "1-2"
+				},
+				"1-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……你怎么还在这里？没带伞吗？",
+					"next": "1-3"
+				},
+				"1-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "来吧，我带了。反正顺路——虽然这好像是第二次说\"顺路\"了。",
+					"next": "1-4"
+				},
+				"1-4": {
+					"type": "choice",
+					"text": "（枫把伞倾向你这边，自己的肩膀已经淋湿了一点。）",
+					"options": [
+						{
+							"text": "你的肩膀湿了，把伞往那边挪一点",
+							"target": "1-4a",
+							"set_variable": { "fuu_favor": 2, "flag_care_umbrella": true }
+						},
+						{
+							"text": "……谢谢",
+							"target": "1-4b",
+							"set_variable": { "fuu_favor": 1 }
+						}
+					]
+				},
+				"1-4a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "诶？啊……没事没事，我习惯了。倒是你别淋着才好。",
+					"next": "1-5"
+				},
+				"1-4b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "不用谢啦。一个人走雨天才更冷呢。",
+					"next": "1-5"
+				},
+				"1-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "你知道吗，雨天的坡道其实有另一种好看。叶子被淋湿之后，颜色会变得很深。",
+					"next": "1-6"
+				},
+				"1-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……嗯，到了。伞就送你吧，我家很近了。",
+					"next": "1-7"
+				},
+				"1-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她把伞塞进你手里，小跑着消失在雨幕中。手柄上还残留着微温。",
+					"next": "2-1"
+				},
+				"2-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "第二天，你特意早到了坡道。手里攥着那把伞，和一片昨晚在窗台上捡到的枫叶。",
+					"next": "2-2"
+				},
+				"2-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "早！你怎么来得这么……等等，那是昨天的叶子？你留着了？",
+					"next": "2-3"
+				},
+				"2-3": {
+					"type": "choice",
+					"text": "（枫的眼睛亮了一下，似乎在期待什么。）",
+					"options": [
+						{
+							"text": "送给你，当作书签的候选",
+							"target": "2-3a",
+							"set_variable": { "fuu_favor": 2, "flag_gift_leaf": true }
+						},
+						{
+							"text": "只是觉得好看而已",
+							"target": "2-3b",
+							"set_variable": { "fuu_favor": 1 }
+						}
+					]
+				},
+				"2-3a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……！嗯，这是我收到过最好看的枫叶。比我自己找到的都好。",
+					"next": "2-4"
+				},
+				"2-3b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "好看？那……要不要给我看看？说不定能当书签呢。",
+					"next": "2-4"
+				},
+				"2-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "其实，我一直觉得枫叶像一封信。颜色越深，想说的话就越多。",
+					"next": "2-5"
+				},
+				"2-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "所以这封信……我就收下啦。谢谢你。",
+					"next": "2-6"
+				},
+				"2-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她小心翼翼地把叶子夹进书页。那一刻，风停了，阳光正好穿过枝丫。",
+					"next": "end"
+				}
+			}
 		}
 	}
 }
