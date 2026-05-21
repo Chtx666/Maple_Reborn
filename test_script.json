@@ -42,12 +42,18 @@
 						{
 							"text": "名字真好听，像秋天的颜色",
 							"next": "1-5a",
-							"set_variable": { "fuu_favor": 1, "flag_compliment_name": true }
+							"set_variable": {
+								"fuu_favor": 1,
+								"flag_compliment_name": true
+							}
 						},
 						{
 							"text": "那你是这棵树的守护者？",
 							"next": "1-5b",
-							"set_variable": { "fuu_favor": 1, "flag_joke_guardian": true }
+							"set_variable": {
+								"fuu_favor": 1,
+								"flag_joke_guardian": true
+							}
 						}
 					]
 				},
@@ -110,12 +116,17 @@
 						{
 							"text": "嗯，顺路一起走吧",
 							"next": "2-3a",
-							"set_variable": { "fuu_favor": 1, "flag_walk_home": true }
+							"set_variable": {
+								"fuu_favor": 1,
+								"flag_walk_home": true
+							}
 						},
 						{
 							"text": "只是今天想绕远路而已",
 							"next": "2-3b",
-							"set_variable": { "flag_detour": true }
+							"set_variable": {
+								"flag_detour": true
+							}
 						}
 					]
 				},
@@ -155,7 +166,7 @@
 					"type": "dialogue",
 					"bg": "menu_bg",
 					"text": "枫挥了挥手，转身走进小巷。夕阳把她的影子拉得很长很长。",
-					"next": "end"
+					"next": "chapter_end"
 				}
 			}
 		},
@@ -191,12 +202,17 @@
 						{
 							"text": "你的肩膀湿了，把伞往那边挪一点",
 							"next": "1-4a",
-							"set_variable": { "fuu_favor": 2, "flag_care_umbrella": true }
+							"set_variable": {
+								"fuu_favor": 2,
+								"flag_care_umbrella": true
+							}
 						},
 						{
 							"text": "……谢谢",
 							"next": "1-4b",
-							"set_variable": { "fuu_favor": 1 }
+							"set_variable": {
+								"fuu_favor": 1
+							}
 						}
 					]
 				},
@@ -259,12 +275,17 @@
 						{
 							"text": "送给你，当作书签的候选",
 							"next": "2-3a",
-							"set_variable": { "fuu_favor": 2, "flag_gift_leaf": true }
+							"set_variable": {
+								"fuu_favor": 2,
+								"flag_gift_leaf": true
+							}
 						},
 						{
 							"text": "只是觉得好看而已",
 							"next": "2-3b",
-							"set_variable": { "fuu_favor": 1 }
+							"set_variable": {
+								"fuu_favor": 1
+							}
 						}
 					]
 				},
@@ -304,7 +325,7 @@
 					"type": "dialogue",
 					"bg": "menu_bg",
 					"text": "她小心翼翼地把叶子夹进书页。那一刻，风停了，阳光正好穿过枝丫。",
-					"next": "end"
+					"next": "chapter_end"
 				}
 			}
 		}
