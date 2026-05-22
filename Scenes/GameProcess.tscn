@@ -109,7 +109,14 @@ layout_mode = 0
 offset_right = 210.0
 offset_bottom = 193.0
 
-[node name="ChapterName" type="Label" parent="VBoxContainer" unique_id=574266187]
+[node name="ChapterLabel" type="Label" parent="VBoxContainer" unique_id=574266187]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "hi"
+vertical_alignment = 3
+
+[node name="SectionLabel" type="Label" parent="VBoxContainer" unique_id=1049579806]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yudex")
 theme_override_font_sizes/font_size = 32

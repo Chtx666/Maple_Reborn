@@ -68,3 +68,6 @@ doc格式如下
 
 2026/5/21 - 2 - Guashark
 改一下readme，加一个doc跳转
+
+2026/5/22 - 1 - Guashark
+恢复Section显示

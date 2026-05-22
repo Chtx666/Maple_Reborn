@@ -8,6 +8,7 @@ var text_panel
 var speaker
 var speaker_panel
 var chapter_label
+var section_label
 var options_container
 
 # 台本声明
@@ -27,7 +28,8 @@ func _ready() -> void:
 	text_panel = $TextContainer/TextPanel
 	speaker = $SpeakerContainer/SpeakerPanel/MarginContainer/Speaker
 	speaker_panel = $SpeakerContainer/SpeakerPanel
-	chapter_label = $VBoxContainer/ChapterName
+	chapter_label = $VBoxContainer/ChapterLabel
+	section_label = $VBoxContainer/SectionLabel
 	options_container = $OptionsContainer
 	
 	var json_path = "res://test_script.json"
@@ -105,6 +107,7 @@ func node_process() -> void:
 	speaker.text = speaker_name if speaker_name != null else "..."
 	text.text = text_name if text_name != null else "......"
 	chapter_label.text = "Chapter " + str(current_chapter)
+	section_label.text = "Section " + current_node.get_slice("-", 0)
 	
 	next_node = node["next"] if node.has("next") else null
 
@@ -122,6 +125,7 @@ func choice_process() -> void:
 	speaker.text = speaker_name if speaker_name != null else "..."
 	text.text = text_name if text_name != null else "......"
 	chapter_label.text = "Chapter " + str(current_chapter)
+	section_label.text = "Section " + current_node.get_slice("-", 0)
 	
 	for i in node["options"].size():
 		var option_btn = Button.new()
