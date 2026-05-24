@@ -64,6 +64,7 @@ theme_override_constants/margin_bottom = 20
 [node name="Text" type="Label" parent="TextContainer/TextPanel/MarginContainer" unique_id=74892178]
 layout_mode = 2
 size_flags_vertical = 1
+custom_minimum_size = Vector2(0, 80)
 theme_override_fonts/font = ExtResource("4_yudex")
 theme_override_font_sizes/font_size = 30
 text = "111"
