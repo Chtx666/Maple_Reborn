@@ -56,7 +56,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	var event = InputEventMouseButton.new()
+	event.pressed = true
+	event.button_index = MOUSE_BUTTON_LEFT
+	if Input.is_action_just_pressed("ui_right"):
+		_on_text_panel_gui_input(event)
+		# print(111)
 
 
 func chapter_iteration() -> void:
