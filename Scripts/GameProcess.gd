@@ -1,5 +1,6 @@
 extends Control
 
+
 # 节点声明
 var background
 var character
@@ -10,6 +11,7 @@ var speaker_panel
 var chapter_label
 var section_label
 var options_container
+
 
 # 台本声明
 var nodes: Dictionary
@@ -36,6 +38,7 @@ func _ready() -> void:
 	var json_string = ""
 	if not FileAccess.file_exists(json_path):
 		print("文件不存在")
+		return
 		
 	var json_file = FileAccess.open(json_path, FileAccess.READ)
 	json_string = json_file.get_as_text()
@@ -54,7 +57,6 @@ func _ready() -> void:
 	chapter_iteration()
 		
 
-
 func _process(_delta: float) -> void:
 	var event = InputEventMouseButton.new()
 	event.pressed = true
@@ -69,6 +71,7 @@ func chapter_iteration() -> void:
 	current_node = chapter["start_node"]
 	nodes = chapter["nodes"]
 	node_iteration()
+
 
 func node_iteration() -> void:
 	if current_node == null:
@@ -91,8 +94,7 @@ func node_iteration() -> void:
 		elif node["type"] == "choice":
 			choice_process()
 			
-
-
+			
 func node_process() -> void:
 	var bg_name = node["bg"] if node.has("bg") && typeof(node["bg"]) != TYPE_NIL else null
 	var character_name = node["character"] if node.has("character") && typeof(node["character"]) != TYPE_NIL else null
@@ -137,12 +139,9 @@ func choice_process() -> void:
 		option_btn.text = node["options"][i]["text"]
 		option_btn.set_meta("option_node", node["options"][i]["next"])
 		options_container.add_child(option_btn)
-		
 		option_btn.pressed.connect(_on_option_btn_pressed.bind(option_btn.get_meta("option_node")))
-
 	
 	next_node = node["next"] if node.has("next") else null
-	
 
 
 func _on_option_btn_pressed(option_node: String) -> void:
@@ -152,7 +151,43 @@ func _on_option_btn_pressed(option_node: String) -> void:
 		
 	node_iteration()
 
+
 func _on_text_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && node["type"] == "dialogue":
 		current_node = next_node
 		node_iteration()
+
+
+func _on_save_button_pressed() -> void:
+	var save_data = {
+		"current_chapter": current_chapter,
+		"current_node": current_node
+	}
+	var json_string = JSON.stringify(save_data, "\t")
+	var game_save_file = FileAccess.open("user://save_game_doc.save", FileAccess.WRITE)
+	game_save_file.store_string(json_string)
+	game_save_file.close()
+
+
+func _on_load_button_pressed() -> void:
+	var _json_path = "user://save_game_doc.save"
+	var _json_string = ""
+	if not FileAccess.file_exists(_json_path):
+		print("文件不存在")
+		return
+		
+	var _json_file = FileAccess.open(_json_path, FileAccess.READ)
+	_json_string = _json_file.get_as_text()
+	_json_file.close()
+	
+	var _json = JSON.new()
+	var _err = _json.parse(_json_string)
+	if _err != OK:
+		print("JSON 解析错误：", _json.get_error_message(), " 位于 ", _json_string, " 行号 ", _json.get_error_line())
+		return
+		
+	var _data: Dictionary = _json.data
+	current_chapter = _data["current_chapter"]
+	current_node = _data["current_node"]
+	node_iteration()
+	

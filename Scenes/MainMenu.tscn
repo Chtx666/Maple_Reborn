@@ -59,19 +59,12 @@ theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "开始游戏"
 
-[node name="AchvBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1405401795]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_8saeu")
-theme_override_font_sizes/font_size = 32
-text = "存档"
-
 [node name="SettingBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1889127240]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
-text = "设置"
+text = "游戏设置"
 
 [node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1750976519]
 layout_mode = 2
@@ -190,7 +183,6 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AchvBtn" to="." method="_on_achv_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="QuitPopup/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]

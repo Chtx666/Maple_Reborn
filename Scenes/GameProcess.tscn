@@ -8,6 +8,17 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0dvh"]
 bg_color = Color(0, 0, 0, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmtf5"]
+bg_color = Color(0, 0, 0, 0.38039216)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o40bh"]
+bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
+
 [node name="GameProcess" type="Control" unique_id=1914459076]
 layout_mode = 3
 anchors_preset = 15
@@ -62,9 +73,9 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Text" type="Label" parent="TextContainer/TextPanel/MarginContainer" unique_id=74892178]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 1
-custom_minimum_size = Vector2(0, 80)
 theme_override_fonts/font = ExtResource("4_yudex")
 theme_override_font_sizes/font_size = 30
 text = "111"
@@ -131,5 +142,148 @@ offset_top = 28.0
 offset_right = 892.0
 offset_bottom = 164.0
 
+[node name="SaveButton" type="Button" parent="." unique_id=1499555128]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 514.0
+offset_right = 252.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "保存游戏"
+
+[node name="LoadButton" type="Button" parent="." unique_id=1410352412]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 514.0
+offset_right = 458.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "加载游戏"
+
+[node name="HomeButton" type="Button" parent="." unique_id=158833052]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 514.0
+offset_right = 663.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "返回首页"
+
+[node name="MessageBox" type="Panel" parent="." unique_id=49986400]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmtf5")
+
+[node name="ConfirmBtn" type="Button" parent="MessageBox" unique_id=982775745]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 28.0
+offset_right = 156.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "确认"
+
+[node name="CancelBtn" type="Button" parent="MessageBox" unique_id=1031591984]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 28.0
+offset_right = -20.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+keep_pressed_outside = true
+text = "取消"
+
+[node name="ConfirmBtnOnly" type="Button" parent="MessageBox" unique_id=2072298749]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 28.0
+offset_right = 78.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "确认"
+
+[node name="Label" type="Label" parent="MessageBox" unique_id=1903025724]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -60.0
+offset_right = 129.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_yudex")
+theme_override_font_sizes/font_size = 32
+text = "确定退出 Maple 吗?"
+
+[node name="Shadow" type="Panel" parent="MessageBox" unique_id=304683613]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -999.0
+offset_top = -500.0
+offset_right = 1001.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o40bh")
+
 [connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
 [connection signal="gui_input" from="TextContainer/TextPanel" to="." method="_on_text_panel_gui_input"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
