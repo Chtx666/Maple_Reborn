@@ -131,5 +131,8 @@ func _on_new_btn_pressed() -> void:
 
 func _on_continue_btn_pressed() -> void:
 	var saves = load_saves()
+	if saves.is_empty():
+		print("没有存档")
+		return
 	_on_save_btn_pressed(saves.max())
 	

@@ -187,6 +187,10 @@ func _on_text_panel_gui_input(event: InputEvent) -> void:
 		current_node = next_node
 		node_iteration()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_right"):
+		current_node = next_node
+		node_iteration()
 
 func _on_continue_btn_pressed() -> void:
 	esc_panel.visible = false
