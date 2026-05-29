@@ -1,6 +1,8 @@
 {
 	"title": "Maple",
 	"start_chapter": "1",
+	"end_chapter": "2", 
+	"end_node": "2-6", 
 	"chapters": {
 		"1": {
 			"start_node": "1-1",

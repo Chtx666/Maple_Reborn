@@ -1,7 +1,12 @@
 extends Control
 
 
+var game_timestamp: int = 0
+var save_data
+
 # 节点声明
+var game_panel
+var esc_panel
 var background
 var character
 var text
@@ -15,24 +20,32 @@ var options_container
 
 # 台本声明
 var nodes: Dictionary
-var current_node
+var current_node = ""
 var next_node
+var end_node
 var node: Dictionary
 var chapters
-var current_chapter
+var current_chapter = ""
+var end_chapter
 var chapter
 
 
 func _ready() -> void:
-	background = $Background
-	character = $Character
-	text = $TextContainer/TextPanel/MarginContainer/Text
-	text_panel = $TextContainer/TextPanel
-	speaker = $SpeakerContainer/SpeakerPanel/MarginContainer/Speaker
-	speaker_panel = $SpeakerContainer/SpeakerPanel
-	chapter_label = $VBoxContainer/ChapterLabel
-	section_label = $VBoxContainer/SectionLabel
-	options_container = $OptionsContainer
+	if game_timestamp == 0:
+		game_timestamp = Time.get_unix_time_from_system()
+	
+	game_panel = $GamePanel
+	esc_panel = $EscPanel
+	esc_panel.visible = false
+	background = $GamePanel/Background
+	character = $GamePanel/Character
+	text = $GamePanel/TextContainer/TextPanel/MarginContainer/Text
+	text_panel = $GamePanel/TextContainer/TextPanel
+	speaker = $GamePanel/SpeakerContainer/SpeakerPanel/MarginContainer/Speaker
+	speaker_panel = $GamePanel/SpeakerContainer/SpeakerPanel
+	chapter_label = $GamePanel/VBoxContainer/ChapterLabel
+	section_label = $GamePanel/VBoxContainer/SectionLabel
+	options_container = $GamePanel/OptionsContainer
 	
 	var json_path = "res://test_script.json"
 	var json_string = ""
@@ -51,24 +64,40 @@ func _ready() -> void:
 		return
 		
 	var data: Dictionary = json.data
+	end_chapter = data["end_chapter"]
+	end_node = data["end_node"]
 	chapters = data["chapters"]
-	current_chapter = data["start_chapter"]
+	if current_chapter == "":
+		current_chapter = data["start_chapter"]
 	
 	chapter_iteration()
 		
 
 func _process(_delta: float) -> void:
-	var event = InputEventMouseButton.new()
+	if Input.is_action_just_pressed("esc"):
+		if esc_panel.visible == false:
+			game_panel.visible = false
+			esc_panel.visible = true
+		elif esc_panel.visible == true:
+			esc_panel.visible = false
+			game_panel.visible = true
+
+
+	"""var event = InputEventMouseButton.new()
 	event.pressed = true
 	event.button_index = MOUSE_BUTTON_LEFT
 	if Input.is_action_just_pressed("ui_right"):
 		_on_text_panel_gui_input(event)
-		# print(111)
+		# print(111)"""
 
 
 func chapter_iteration() -> void:
+	if current_chapter == "chapter_end":
+		return
+		
 	chapter = chapters[current_chapter]
-	current_node = chapter["start_node"]
+	if current_node == "" || current_node == "chapter_end":
+		current_node = chapter["start_node"]
 	nodes = chapter["nodes"]
 	node_iteration()
 
@@ -81,6 +110,7 @@ func node_iteration() -> void:
 			current_chapter = chapter["next_chapter"]
 			chapter_iteration()
 		else:
+			current_chapter = "chapter_end"
 			return
 	else:
 		if current_node == null || !nodes.has(current_node):
@@ -158,36 +188,36 @@ func _on_text_panel_gui_input(event: InputEvent) -> void:
 		node_iteration()
 
 
-func _on_save_button_pressed() -> void:
-	var save_data = {
-		"current_chapter": current_chapter,
-		"current_node": current_node
-	}
+func _on_continue_btn_pressed() -> void:
+	esc_panel.visible = false
+	game_panel.visible = true
+
+
+func _on_save_btn_pressed() -> void:
+	var timestamp: int = Time.get_unix_time_from_system()
+	
+	if current_node != "chapter_end":
+		save_data = {
+			"current_chapter": current_chapter,
+			"current_node": current_node,
+		}
+	elif current_node == "chapter_end" && current_chapter == "chapter_end":
+		save_data = {
+			"current_chapter": end_chapter,
+			"current_node": end_node,
+		}
+	if not DirAccess.dir_exists_absolute("user://saves/"):
+		DirAccess.make_dir_recursive_absolute("user://saves/")
+		
 	var json_string = JSON.stringify(save_data, "\t")
-	var game_save_file = FileAccess.open("user://save_game_doc.save", FileAccess.WRITE)
-	game_save_file.store_string(json_string)
-	game_save_file.close()
+	var save_file = FileAccess.open("user://saves/" + str(game_timestamp) + ".save", FileAccess.WRITE)
+	save_file.store_string(json_string)
+	save_file.close()
+	DirAccess.rename_absolute("user://saves/" + str(game_timestamp) + ".save", "user://saves/" + str(timestamp) + ".save")
+	game_timestamp = timestamp
 
 
-func _on_load_button_pressed() -> void:
-	var _json_path = "user://save_game_doc.save"
-	var _json_string = ""
-	if not FileAccess.file_exists(_json_path):
-		print("文件不存在")
-		return
-		
-	var _json_file = FileAccess.open(_json_path, FileAccess.READ)
-	_json_string = _json_file.get_as_text()
-	_json_file.close()
-	
-	var _json = JSON.new()
-	var _err = _json.parse(_json_string)
-	if _err != OK:
-		print("JSON 解析错误：", _json.get_error_message(), " 位于 ", _json_string, " 行号 ", _json.get_error_line())
-		return
-		
-	var _data: Dictionary = _json.data
-	current_chapter = _data["current_chapter"]
-	current_node = _data["current_node"]
-	node_iteration()
-	
+func _on_quit_btn_pressed() -> void:
+	_on_save_btn_pressed()
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	queue_free()

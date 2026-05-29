@@ -34,7 +34,15 @@ grow_vertical = 2
 texture = ExtResource("1_tt5f1")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2054387256]
+[node name="MainPanel" type="Control" parent="." unique_id=1514595498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel" unique_id=2054387256]
 custom_minimum_size = Vector2(163, 240)
 layout_mode = 1
 anchors_preset = 3
@@ -43,44 +51,44 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -225.0
-offset_top = -331.28836
+offset_top = -331.28833
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1682732082]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer" unique_id=1682732082]
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=577154932]
+[node name="StartBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=577154932]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "开始游戏"
 
-[node name="SettingBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1889127240]
+[node name="SettingBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1889127240]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "游戏设置"
 
-[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1750976519]
+[node name="QuitBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1750976519]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 32
 text = "退出游戏"
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=921321079]
+[node name="MarginContainer2" type="MarginContainer" parent="MainPanel" unique_id=921321079]
 layout_mode = 1
 offset_right = 502.0
 offset_bottom = 181.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 
-[node name="Title" type="Label" parent="MarginContainer2" unique_id=564237359]
+[node name="Title" type="Label" parent="MainPanel/MarginContainer2" unique_id=564237359]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
@@ -90,11 +98,102 @@ text = "Maple"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="StartPanel" type="Control" parent="." unique_id=705037388]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartPanel" unique_id=622432943]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.25
+offset_top = -65.5
+offset_right = 304.25
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueBtn" type="Button" parent="StartPanel/HBoxContainer" unique_id=2039789302]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "继续游戏"
+
+[node name="NewBtn" type="Button" parent="StartPanel/HBoxContainer" unique_id=1709931983]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "新游戏"
+
+[node name="LoadBtn" type="Button" parent="StartPanel/HBoxContainer" unique_id=1914113420]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "加载游戏"
+
+[node name="ReturnBtn" type="Button" parent="StartPanel" unique_id=374696182]
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "返回"
+
+[node name="LoadPanel" type="Control" parent="." unique_id=1798117126]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadPanel" unique_id=645396183]
+layout_mode = 1
+offset_right = 77.0
+offset_bottom = 47.0
+
+[node name="ReturnBtn2" type="Button" parent="LoadPanel/HBoxContainer" unique_id=589083417]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "返回"
+
+[node name="Label" type="Label" parent="LoadPanel/HBoxContainer" unique_id=704236496]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "选择存档"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LoadPanel" unique_id=1518946406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SavesContainer" type="VBoxContainer" parent="LoadPanel/ScrollContainer" unique_id=72695275]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="QuitPopup" type="Panel" parent="." unique_id=1757318676]
 visible = false
 z_index = 1
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -182,8 +281,13 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="StartPanel/HBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="StartPanel/HBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
+[connection signal="pressed" from="StartPanel/HBoxContainer/LoadBtn" to="." method="_on_load_btn_pressed"]
+[connection signal="pressed" from="StartPanel/ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="LoadPanel/HBoxContainer/ReturnBtn2" to="." method="_on_return_btn_2_pressed"]
 [connection signal="pressed" from="QuitPopup/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="QuitPopup/CancelBtn" to="." method="_on_cancel_btn_pressed"]
