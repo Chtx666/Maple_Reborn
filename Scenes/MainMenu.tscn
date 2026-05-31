@@ -151,13 +151,21 @@ theme_override_font_sizes/font_size = 32
 text = "返回"
 
 [node name="LoadPanel" type="Control" parent="." unique_id=1798117126]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DelBtn" type="Button" parent="LoadPanel" unique_id=284348099]
+layout_mode = 0
+offset_left = 1015.0
+offset_right = 1151.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
+text = "删除存档"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LoadPanel" unique_id=645396183]
 layout_mode = 1
@@ -288,6 +296,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 [connection signal="pressed" from="StartPanel/HBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
 [connection signal="pressed" from="StartPanel/HBoxContainer/LoadBtn" to="." method="_on_load_btn_pressed"]
 [connection signal="pressed" from="StartPanel/ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="LoadPanel/DelBtn" to="." method="_on_del_btn_pressed"]
 [connection signal="pressed" from="LoadPanel/HBoxContainer/ReturnBtn2" to="." method="_on_return_btn_2_pressed"]
 [connection signal="pressed" from="QuitPopup/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="QuitPopup/CancelBtn" to="." method="_on_cancel_btn_pressed"]

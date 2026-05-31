@@ -5,6 +5,8 @@ var main_panel
 var start_panel
 var load_panel
 var saves_container
+var save_or_del
+var del_button
 	
 func _ready() -> void:
 	quit_popup = $QuitPopup
@@ -19,6 +21,7 @@ func _ready() -> void:
 	load_panel.visible = false
 	
 	saves_container = $LoadPanel/ScrollContainer/SavesContainer
+	del_button = $LoadPanel/DelBtn
 
 func _process(_delta: float) -> void:
 	pass
@@ -47,6 +50,9 @@ func _on_return_btn_pressed() -> void:
 func _on_load_btn_pressed() -> void:
 	start_panel.visible = false
 	load_panel.visible = true
+	
+	save_or_del = "save"
+	del_button.text = "删除存档"
 	
 	var saves = load_saves()
 	if saves.size() != 0:
@@ -96,6 +102,19 @@ func load_saves() -> Variant:
 
 
 func _on_save_btn_pressed(save_name: String):
+	if (save_or_del == "del"):
+		if FileAccess.file_exists("user://saves//" + save_name + ".save"):
+			var error = DirAccess.remove_absolute("user://saves//" + save_name + ".save")
+			if error == OK:
+				print("文件删除成功")
+			else:
+				print("删除失败，错误代码: ", error)
+		else:
+			print("文件不存在")
+		_on_return_btn_2_pressed()
+		_on_load_btn_pressed()
+		return
+	
 	var save_json = FileAccess.open("user://saves//" + save_name + ".save", FileAccess.READ)
 	
 	var json_string = save_json.get_as_text()
@@ -125,6 +144,7 @@ func _on_return_btn_2_pressed() -> void:
 		child.queue_free()
 	start_panel.visible = true
 
+
 func _on_new_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/GameProcess.tscn")
 
@@ -136,3 +156,11 @@ func _on_continue_btn_pressed() -> void:
 		return
 	_on_save_btn_pressed(saves.max())
 	
+	
+func _on_del_btn_pressed() -> void:
+	if save_or_del == "del":
+		save_or_del = "save"
+		del_button.text = "删除存档"
+		return
+	save_or_del = "del"
+	del_button.text = "退出删除"

@@ -83,14 +83,6 @@ func _process(_delta: float) -> void:
 			game_panel.visible = true
 
 
-	"""var event = InputEventMouseButton.new()
-	event.pressed = true
-	event.button_index = MOUSE_BUTTON_LEFT
-	if Input.is_action_just_pressed("ui_right"):
-		_on_text_panel_gui_input(event)
-		# print(111)"""
-
-
 func chapter_iteration() -> void:
 	if current_chapter == "chapter_end":
 		return
