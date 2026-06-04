@@ -5,8 +5,9 @@ var main_panel
 var start_panel
 var load_panel
 var saves_container
-var save_or_del
-var del_button
+var del_btn
+
+var save_status # for judging save panel status
 	
 func _ready() -> void:
 	quit_popup = $QuitPopup
@@ -21,7 +22,7 @@ func _ready() -> void:
 	load_panel.visible = false
 	
 	saves_container = $LoadPanel/ScrollContainer/SavesContainer
-	del_button = $LoadPanel/DelBtn
+	del_btn = $LoadPanel/DelBtn
 
 func _process(_delta: float) -> void:
 	pass
@@ -51,13 +52,13 @@ func _on_load_btn_pressed() -> void:
 	start_panel.visible = false
 	load_panel.visible = true
 	
-	save_or_del = "save"
-	del_button.text = "删除存档"
+	save_status = "save"
+	del_btn.text = "删除存档"
 	
 	var saves = load_saves()
 	if saves.size() != 0:
 		for i in saves.size():
-			var save_json = FileAccess.open("user://saves//" + saves[i] + ".save", FileAccess.READ)
+			var save_json = FileAccess.open("user://saves/" + saves[i] + ".save", FileAccess.READ)
 	
 			var json_string = save_json.get_as_text()
 			save_json.close()
@@ -102,9 +103,9 @@ func load_saves() -> Variant:
 
 
 func _on_save_btn_pressed(save_name: String):
-	if (save_or_del == "del"):
-		if FileAccess.file_exists("user://saves//" + save_name + ".save"):
-			var error = DirAccess.remove_absolute("user://saves//" + save_name + ".save")
+	if (save_status == "del"):
+		if FileAccess.file_exists("user://saves/" + save_name + ".save"):
+			var error = DirAccess.remove_absolute("user://saves/" + save_name + ".save")
 			if error == OK:
 				print("文件删除成功")
 			else:
@@ -115,7 +116,7 @@ func _on_save_btn_pressed(save_name: String):
 		_on_load_btn_pressed()
 		return
 	
-	var save_json = FileAccess.open("user://saves//" + save_name + ".save", FileAccess.READ)
+	var save_json = FileAccess.open("user://saves/" + save_name + ".save", FileAccess.READ)
 	
 	var json_string = save_json.get_as_text()
 	save_json.close()
@@ -158,9 +159,9 @@ func _on_continue_btn_pressed() -> void:
 	
 	
 func _on_del_btn_pressed() -> void:
-	if save_or_del == "del":
-		save_or_del = "save"
-		del_button.text = "删除存档"
+	if save_status == "del":
+		save_status = "save"
+		del_btn.text = "删除存档"
 		return
-	save_or_del = "del"
-	del_button.text = "退出删除"
+	save_status = "del"
+	del_btn.text = "退出删除"
