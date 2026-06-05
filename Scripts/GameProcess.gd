@@ -97,18 +97,18 @@ func chapter_iteration() -> void:
 func node_iteration() -> void:
 	if current_node == null:
 		return
-	elif current_node == "chapter_end":
-		if chapter.has("next_chapter"):
-			current_chapter = chapter["next_chapter"]
-			chapter_iteration()
-		else:
+	if current_node == "chapter_end":
+		if !chapter.has("next_chapter"):
 			current_chapter = "chapter_end"
 			return
+		
+		current_chapter = chapter["next_chapter"]
+		chapter_iteration()
 	else:
 		if current_node == null || !nodes.has(current_node):
 			print("节点未找到: " + str(current_node))
 			return
-			
+		
 		node = nodes[current_node]
 		
 		if node["type"] == "dialogue":
