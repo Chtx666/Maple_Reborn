@@ -63,49 +63,53 @@ func _on_load_btn_pressed() -> void:
 	del_btn.text = "删除存档"
 	
 	var saves = load_saves()
-	if saves.size() != 0:
-		for i in saves.size():
-			var save_json = FileAccess.open("user://saves/" + saves[i] + ".save", FileAccess.READ)
-	
-			var json_string = save_json.get_as_text()
-			save_json.close()
-			var json = JSON.new()
-			var err = json.parse(json_string)
-			if err != OK:
-				print("JSON 解析错误：", json.get_error_message(), " 位于 ", json_string, " 行号 ", json.get_error_line())
-				return
-		
-			var data: Dictionary = json.data
-			
-			var save_btn = Button.new()
-			save_btn.text = Time.get_date_string_from_unix_time(int(saves[i])) + " Chapter " + str(data["current_chapter"]) + " " + str(data["current_node"])
-			save_btn.set_meta("save_name", saves[i])
-			saves_container.add_child(save_btn)
-			save_btn.pressed.connect(_on_save_btn_pressed.bind(save_btn.get_meta("save_name")))
-	
-	else:
+
+	if saves.is_empty():
 		var label = Label.new()
 		label.text = "啥都木有..."
 		saves_container.add_child(label)
+		return
+
+	for i in saves.size():
+		var save_json = FileAccess.open("user://saves/" + saves[i] + ".save", FileAccess.READ)
+
+		var json_string = save_json.get_as_text()
+		save_json.close()
+		var json = JSON.new()
+		var err = json.parse(json_string)
+		if err != OK:
+			print("JSON 解析错误：", json.get_error_message(), " 位于 ", json_string, " 行号 ", json.get_error_line())
+			return
+	
+		var data: Dictionary = json.data
 		
+		var save_btn = Button.new()
+		save_btn.text = Time.get_date_string_from_unix_time(int(saves[i])) + " Chapter " + str(data["current_chapter"]) + " " + str(data["current_node"])
+		save_btn.set_meta("save_name", saves[i])
+		saves_container.add_child(save_btn)
+		save_btn.pressed.connect(_on_save_btn_pressed.bind(save_btn.get_meta("save_name")))
+	
+	
+	
 
 func load_saves() -> Variant:
 	var saves = []
 	var dir = DirAccess.open("user://saves/")
 	
-	if dir:
-		dir.list_dir_begin()
-		var save = dir.get_next()
-		
-		while save != "":
-			if !dir.current_is_dir() && save.get_extension().to_lower() == "save".to_lower():
-				saves.append(save.get_basename())
-			
-			save = dir.get_next()
-		dir.list_dir_end()
-	else:
+	if !dir:
 		print("失败: ", "user://saves/")
+		return saves
+
+	dir.list_dir_begin()
+	var save = dir.get_next()
 	
+	while save != "":
+		if !dir.current_is_dir() && save.get_extension().to_lower() == "save".to_lower():
+			saves.append(save.get_basename())
+		
+		save = dir.get_next()
+	dir.list_dir_end()
+
 	return saves
 
 
@@ -180,6 +184,9 @@ func _on_del_btn_pressed() -> void:
 	save_status = "del";
 	del_btn.text = "退出删除";
 
+	if load_saves().is_empty():
+		return
+	
 	var style1 = StyleBoxFlat.new();
 	style1.bg_color = Color(1.0, 0.2, 0.2, 0.518);
 	style1.content_margin_left = 8
