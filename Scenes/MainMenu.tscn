@@ -151,7 +151,6 @@ theme_override_font_sizes/font_size = 32
 text = "返回"
 
 [node name="LoadPanel" type="Control" parent="." unique_id=1798117126]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -4,6 +4,7 @@ extends Control
 var game_timestamp: int = 0
 var save_data
 
+
 # 节点声明
 var game_panel
 var esc_panel
@@ -32,7 +33,7 @@ var chapter
 
 func _ready() -> void:
 	if game_timestamp == 0:
-		game_timestamp = Time.get_unix_time_from_system()
+		game_timestamp = int(Time.get_unix_time_from_system())
 	
 	game_panel = $GamePanel
 	esc_panel = $EscPanel
@@ -179,10 +180,12 @@ func _on_text_panel_gui_input(event: InputEvent) -> void:
 		current_node = next_node
 		node_iteration()
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_right"):
 		current_node = next_node
 		node_iteration()
+
 
 func _on_continue_btn_pressed() -> void:
 	esc_panel.visible = false
@@ -190,7 +193,7 @@ func _on_continue_btn_pressed() -> void:
 
 
 func _on_save_btn_pressed() -> void:
-	var timestamp: int = Time.get_unix_time_from_system()
+	var timestamp: int = int(Time.get_unix_time_from_system())
 	
 	if current_node != "chapter_end":
 		save_data = {

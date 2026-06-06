@@ -1,5 +1,6 @@
 extends Control
 
+
 var quit_popup
 var main_panel
 var start_panel
@@ -7,7 +8,9 @@ var load_panel
 var saves_container
 var del_btn
 
+
 var save_status # for judging save panel status
+	
 	
 func _ready() -> void:
 	quit_popup = $QuitPopup
@@ -24,29 +27,33 @@ func _ready() -> void:
 	saves_container = $LoadPanel/ScrollContainer/SavesContainer
 	del_btn = $LoadPanel/DelBtn
 
-func _process(_delta: float) -> void:
-	pass
 
 func _on_start_btn_pressed() -> void:
 	main_panel.visible = false
 	start_panel.visible = true
 
+
 func _on_setting_btn_pressed() -> void:
 	pass
 	# get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
 
+
 func _on_quit_btn_pressed() -> void:
 	quit_popup.visible = true
+
 
 func _on_confirm_btn_pressed() -> void:
 	get_tree().quit()
 
+
 func _on_cancel_btn_pressed() -> void:
 	quit_popup.visible = false
+
 
 func _on_return_btn_pressed() -> void:
 	main_panel.visible = true
 	start_panel.visible = false
+
 
 func _on_load_btn_pressed() -> void:
 	start_panel.visible = false
@@ -140,6 +147,7 @@ func _on_save_btn_pressed(save_name: String):
 	get_tree().current_scene = game_instance
 	queue_free()
 
+
 func _on_return_btn_2_pressed() -> void:
 	load_panel.visible = false
 	for child in saves_container.get_children():
@@ -152,17 +160,45 @@ func _on_new_btn_pressed() -> void:
 
 
 func _on_continue_btn_pressed() -> void:
-	var saves = load_saves()
+	var saves = load_saves();
 	if saves.is_empty():
-		print("没有存档")
-		return
-	_on_save_btn_pressed(saves.max())
+		print("没有存档");
+		return;
+	_on_save_btn_pressed(saves.max());
 	
 	
 func _on_del_btn_pressed() -> void:
 	if save_status == "del":
-		save_status = "save"
-		del_btn.text = "删除存档"
-		return
-	save_status = "del"
-	del_btn.text = "退出删除"
+		save_status = "save";
+		del_btn.text = "删除存档";
+		
+		for it in saves_container.get_children():
+			it.remove_theme_stylebox_override("normal");
+			it.remove_theme_stylebox_override("hover");
+			it.remove_theme_stylebox_override("pressed");
+		return;
+	save_status = "del";
+	del_btn.text = "退出删除";
+
+	var style1 = StyleBoxFlat.new();
+	style1.bg_color = Color(1.0, 0.2, 0.2, 0.518);
+	style1.content_margin_left = 8
+	style1.content_margin_right = 8
+	style1.content_margin_top = 4
+	style1.content_margin_bottom = 4
+	var style2 = StyleBoxFlat.new();
+	style2.bg_color = Color(1.0, 0.2, 0.2, 0.741);
+	style2.content_margin_left = 8
+	style2.content_margin_right = 8
+	style2.content_margin_top = 4
+	style2.content_margin_bottom = 4
+	var style3 = StyleBoxFlat.new();
+	style3.bg_color = Color(1.0, 0.2, 0.2, 0.925);
+	style3.content_margin_left = 8
+	style3.content_margin_right = 8
+	style3.content_margin_top = 4
+	style3.content_margin_bottom = 4
+	for it in saves_container.get_children():
+		it.add_theme_stylebox_override("normal", style1);
+		it.add_theme_stylebox_override("hover", style2);
+		it.add_theme_stylebox_override("pressed", style3);
