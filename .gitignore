@@ -25,6 +25,8 @@ mono_crash.*.json
 
 #Others
 .workbuddy/
+.codebuddy/
+CODEBUDDY.md
 
 # FuCk VsCoDe !!
 .vscode/
