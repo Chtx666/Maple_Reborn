@@ -1,8 +1,8 @@
 {
 	"title": "Maple",
 	"start_chapter": "1",
-	"end_chapter": "2", 
-	"end_node": "2-6", 
+	"end_chapter": "5",
+	"end_node": "2-10", 
 	"chapters": {
 		"1": {
 			"start_node": "1-1",
@@ -174,6 +174,7 @@
 		},
 		"2": {
 			"start_node": "1-1",
+			"next_chapter": "3",
 			"nodes": {
 				"1-1": {
 					"type": "dialogue",
@@ -327,6 +328,625 @@
 					"type": "dialogue",
 					"bg": "menu_bg",
 					"text": "她小心翼翼地把叶子夹进书页。那一刻，风停了，阳光正好穿过枝丫。",
+					"next": "chapter_end"
+				}
+			}
+		},
+		"3": {
+			"start_node": "1-1",
+			"next_chapter": "4",
+			"nodes": {
+				"1-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "一连三天，枫没有出现在坡道上。每次放学你都会绕过去看一眼，但那棵最大的枫树下，只有被阳光晒得发亮的地面。偶尔有叶子落下来，没有人去捡。",
+					"next": "1-2"
+				},
+				"1-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "第四天，你决定去找她。问了几个同年级的学生，有人说放学后见过一个女生独自往海边的方向走——那边只有一条废弃的坡道，和一张很久没人坐的长椅。",
+					"next": "1-3"
+				},
+				"1-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "穿过灌木丛，坡道的尽头是一小片被遗忘的空地。长椅面对着海，椅子上的漆已经剥落了大半。枫坐在那里，膝盖上摊着一本很厚的笔记本。她的手指停在某一页上，像是已经那样停了一整个下午。",
+					"next": "1-4"
+				},
+				"1-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……你居然找到这里了。这个地方，除了我，没人会来的。",
+					"next": "1-5"
+				},
+				"1-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她合上笔记本。封面上画着一片枫叶，边缘已经磨损得起了毛边。你忽然想起她说过的话——「每年这个时候，我都会来这里挑一片最好看的枫叶」。说这句话的时候，她的语气好像不只是「仪式」两个字那么简单。",
+					"next": "1-6"
+				},
+				"1-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "其实，我一直以来捡那些叶子，不是为了当书签。是……为了写信。",
+					"next": "1-7"
+				},
+				"1-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她把笔记本翻到某一页，里面夹着好几片已经干透的枫叶。每一片叶子下面，都有一行很小的字。有些笔迹稚嫩，像是很久以前写下的；有些墨迹很新。",
+					"next": "1-8"
+				},
+				"1-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "奶奶以前住在这附近。小时候，每年秋天她都会带我来这里，挑一片最好看的叶子。她说——把想说的话写在叶子上，秋天结束的时候，话就会飘到天上去。",
+					"next": "1-9"
+				},
+				"1-9": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她走了快五年了。但每年这个时候，我还是会来。好像只要我还在捡叶子，她就还没有真的离开。",
+					"next": "1-10"
+				},
+				"1-10": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "海风把笔记本的页角吹得哗哗响。枫低着头，手指反复摩挲着一片枫叶的边缘。夕阳落在她的刘海上，你看不清她的表情。",
+					"next": "1-11"
+				},
+				"1-11": {
+					"type": "choice",
+					"text": "（枫的手指停在一片叶子上，像在等你说些什么。）",
+					"options": [
+						{
+							"text": "你的信，她一定都收到了",
+							"next": "1-11a",
+							"set_variable": {
+								"fuu_favor": 3,
+								"flag_letters_received": true
+							}
+						},
+						{
+							"text": "那今天也挑一片吧，我帮你",
+							"next": "1-11b",
+							"set_variable": {
+								"fuu_favor": 3,
+								"flag_pick_together": true
+							}
+						}
+					]
+				},
+				"1-11a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她抬起头，眼睛里有水光。但她在笑。",
+					"next": "1-11ac"
+				},
+				"1-11ac": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "虽然不知道有没有天堂，但如果有的话，她大概正在一边喝茶一边嫌弃我字写得越来越难看吧。",
+					"next": "2-1"
+				},
+				"1-11b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "你这个人真的很奇怪。刚认识几天而已，就这样理所当然地闯进别人的秘密里。",
+					"next": "1-11bc"
+				},
+				"1-11bc": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她嘴上这么说，却往旁边挪了挪，在长椅上给你让出了一个位置。",
+					"next": "2-1"
+				},
+				"2-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你们沉默地坐了一会儿。远处的海面上，太阳正慢慢沉下去，把云染成她名字的颜色。海鸥掠过水面，留下一道很长的涟漪。",
+					"next": "2-2"
+				},
+				"2-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "你知道吗，这个地方能看到整个枫坂最美的日落。其实奶奶以前就是冲着日落来的，枫叶只是顺带的。",
+					"next": "2-3"
+				},
+				"2-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "喂。以后……每年秋天，你要不要也一起来？一个人捡叶子，确实有点无聊了。",
+					"next": "2-4"
+				},
+				"2-4": {
+					"type": "choice",
+					"text": "（枫歪着头看你，夕阳把她的侧脸染成了暖金色。）",
+					"options": [
+						{
+							"text": "好，约好了",
+							"next": "2-4a",
+							"set_variable": {
+								"fuu_favor": 2,
+								"flag_promise_autumn": true
+							}
+						},
+						{
+							"text": "不止秋天——春天夏天冬天也一起",
+							"next": "2-4b",
+							"set_variable": {
+								"fuu_favor": 2,
+								"flag_promise_all_seasons": true
+							}
+						}
+					]
+				},
+				"2-4a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "嗯，约好了。不许反悔——我可是会把约定写在叶子上的。",
+					"next": "2-5"
+				},
+				"2-4b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "春夏秋冬？你也太贪心了吧。",
+					"next": "2-4bc"
+				},
+				"2-4bc": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "不过——也不是不行。反正这条坡道一年四季都挺好看的。",
+					"next": "2-5"
+				},
+				"2-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她站起来，合上笔记本，拍了拍裙子上的灰尘。然后从长椅旁边那棵矮枫树上，随手摘下一片还没红的叶子，塞进你手里。",
+					"next": "2-6"
+				},
+				"2-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "这个给你。虽然季节不对，但提前预支了。等它变红的时候——你要把想说的话写在上面。不是写给奶奶，是写给我。",
+					"next": "2-7"
+				},
+				"2-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你们一起走回坡道。黄昏把两个人的影子叠在一起，分不清哪边是谁的。远处那棵最大的枫树在风里沙沙作响，像是在说——欢迎回来。",
+					"next": "chapter_end"
+				}
+			}
+		},
+		"4": {
+			"start_node": "1-1",
+			"next_chapter": "5",
+			"nodes": {
+				"1-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "一周后的某个黄昏，你一个人坐在坡道那棵最大的枫树下。枫给的那片青叶子揣在口袋里，边缘已经开始微微泛黄。",
+					"next": "1-2"
+				},
+				"1-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你低头看着叶子上细密的脉络，忽然意识到一件事——开学第一天你走上这条坡道的时候，还没遇见过枫。你不是来找任何人的。你本来就打算来。",
+					"next": "1-3"
+				},
+				"1-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "背包夹层里有一张很旧的照片。照片上是同一条坡道，同一棵枫树，只是树比现在小了一圈。照片背面的铅笔字歪歪扭扭——「爷爷说，秋天的叶子会写信。」那是你七岁时写的。",
+					"next": "1-4"
+				},
+				"1-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "爷爷是摄影记者，在这座小镇住了大半辈子。他走的那年，你从暗房里翻出三十七张照片，全部是这条坡道——春夏秋冬，清晨黄昏。他拍了一辈子的人和事，最后反复拍的，只是一条四百米的斜坡。",
+					"next": "1-5"
+				},
+				"1-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "所以你来了。转学、搬家、每天绕远路走上这条坡道——你从来没有跟任何人解释过。因为你也不知道该怎么解释。",
+					"next": "1-6"
+				},
+				"1-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你把照片塞回夹层里。抬起头——枫正站在坡道口。她手里拎着便利店的袋子，脆皮甜筒的包装纸在风里簌簌响。看到你，她愣了一秒。",
+					"next": "1-7"
+				},
+				"1-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……你怎么一个人在这里？等人？",
+					"next": "1-8"
+				},
+				"1-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她走过来，在树根的另一侧坐下，歪头看了一眼你还没来得及塞好的照片角。",
+					"next": "1-9"
+				},
+				"1-9": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "那个，是什么？",
+					"next": "1-10"
+				},
+				"1-10": {
+					"type": "choice",
+					"text": "（枫的目光停在照片露出的角上。你捏着边缘，犹豫了。）",
+					"options": [
+						{
+							"text": "把照片递给她",
+							"next": "1-10a",
+							"set_variable": {
+								"fuu_favor": 3,
+								"flag_share_photo": true
+							}
+						},
+						{
+							"text": "先收起来，让她别在意",
+							"next": "1-10b",
+							"set_variable": {
+								"fuu_favor": 1,
+								"flag_keep_photo": true
+							}
+						}
+					]
+				},
+				"1-10a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她接过去，翻到背面，看到那行铅笔字。手指停在上面，很久没动。",
+					"next": "1-10aa"
+				},
+				"1-10aa": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "「秋天的叶子会写信」……你七岁就知道了？",
+					"next": "1-10ab"
+				},
+				"1-10ab": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你把爷爷的事告诉了她。说了暗房、三十七张照片、和那句他挂在嘴边的老话——「只有不需要雕琢的东西，才值得反复去看」。",
+					"next": "2-1"
+				},
+				"1-10b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她看着你把照片塞回去，没有追问。只是从袋子里抽出一支甜筒，塞进你手里。",
+					"next": "1-10bb"
+				},
+				"1-10bb": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "不想说也没关系。反正你那天也没问我为什么一个人坐在海边的长椅上。我们扯平了。",
+					"next": "1-10bc"
+				},
+				"1-10bc": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "甜筒正在融化，滴在你的指节上。你忽然觉得，现在不说的话，可能再也不会说了。",
+					"next": "1-10bd"
+				},
+				"1-10bd": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你把照片从夹层里重新抽出来，递给她。然后告诉了她关于爷爷的一切。",
+					"next": "2-1"
+				},
+				"2-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她听完之后，很长一段时间没说话。只有风吹过树叶的声音，和她手里甜筒包装纸的细微响动。",
+					"next": "2-2"
+				},
+				"2-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "三十七张。而且都是同一条坡道。",
+					"next": "2-3"
+				},
+				"2-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "那你每天走这条路，其实不是在回家。",
+					"next": "2-4"
+				},
+				"2-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "是在去他拍过的那些黄昏里。",
+					"next": "2-5"
+				},
+				"2-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她说完这句话，自己的眼圈红了一下。不是为你，也不是为奶奶——只是忽然发现，原来世界上不止一个人，在踩着别人的脚步往前走。",
+					"next": "2-6"
+				},
+				"2-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她从你手里拿过那片青叶，对着最后一道夕阳。叶子的边缘出现了一条极细的红线。",
+					"next": "2-7"
+				},
+				"2-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "你爷爷说得对。叶子确实会写信。只不过不是飘到天上——是飘到另一个也在等信的人手里。",
+					"next": "2-8"
+				},
+				"2-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "夜幕降下来，路灯一盏接一盏亮起。坡道变得比以前长了一些，也暖了一些。",
+					"next": "2-9"
+				},
+				"2-9": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "走吧。红豆饼店还开着。这次真的请你——不许再说「只是顺路」了。",
+					"next": "chapter_end"
+				}
+			}
+		},
+		"5": {
+			"start_node": "1-1",
+			"nodes": {
+				"1-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "红豆饼比想象中好吃。红豆馅是老板娘每天现熬的，粒粒分明，甜味压在舌根上很久才散。结账时她抢在你前面付了钱——「说好了这次请你，别跟我抢。」",
+					"next": "1-2"
+				},
+				"1-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "那天之后，日子看起来没什么变化。你们还是一起走坡道回家，她还是会在某片叶子前面停下来，歪头看很久。但你开始习惯了在坡道口等她，而不是恰好遇见她。",
+					"next": "1-3"
+				},
+				"1-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "十月中旬的一个傍晚。放学时她从后面追上你，背包拉链没关好。一本旧相册从开口滑出来，砸在你脚边的枫叶堆里。",
+					"next": "1-4"
+				},
+				"1-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "啊——差点忘了。这个是我妈昨天收拾阁楼翻出来的。奶奶的东西。",
+					"next": "1-5"
+				},
+				"1-5": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "然后我发现了一件很巧的事。你想听吗？",
+					"next": "1-6"
+				},
+				"1-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她没等你回答就翻开了。相册停在某一页，照片旧得发黄，角上贴着透明胶带。画面上是同一条坡道——同一棵枫树，同一个傍晚的光线。树比现在矮很多，树下站着两个人。一个年轻女人对着镜头笑。另一个人只露出半边肩膀，正举着一台老式单反。",
+					"next": "1-7"
+				},
+				"1-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你的呼吸停了。那只举相机的手腕上，戴着一块你认识的手表。格子衬衫的袖口卷到小臂——你见过太多次了。在你爷爷的每一张照片里，他都穿着同一件格子衬衫。",
+					"next": "1-8"
+				},
+				"1-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "你怎么了？脸都白了。",
+					"next": "1-9"
+				},
+				"1-9": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "你没有说话。只是从背包夹层里摸出那张旧照片，翻到背面——「爷爷说，秋天的叶子会写信。」然后把照片放在她的相册旁边，两张并排。同一条坡道，同一棵树，相差的只有年份和角度。",
+					"next": "1-10"
+				},
+				"1-10": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她低头看了很久。然后伸手，把两张照片叠在一起，对着夕阳举起来。",
+					"next": "1-11"
+				},
+				"1-11": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "所以你看——我们不是在这条坡道上遇见的。是在他们拍下的同一道光里。隔了五十多年。",
+					"next": "1-12"
+				},
+				"1-12": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "风吹过来，把你们脚边的枫叶吹散了。但两张叠在一起的照片，谁都没有松开。",
+					"next": "2-1"
+				},
+				"2-1": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "第二天傍晚，你在坡道口等她。口袋里那片青叶已经完全红了——你不知道它是什么时候变的，只是伸手进去的时候才注意到。叶脉像血管一样突出来，颜色比枫坂任何一棵树上的叶子都要深。",
+					"next": "2-2"
+				},
+				"2-2": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她从坡道那头走过来的时候，一眼就看到了你手里的红叶。脚步明显顿了一下。",
+					"next": "2-3"
+				},
+				"2-3": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "……红了啊。那——到你了。",
+					"next": "2-4"
+				},
+				"2-4": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她从书包里摸出一支细头的马克笔，塞进你手里。然后退了一步，背着手，歪头看你。像是在等一件很重要的事。",
+					"next": "2-5"
+				},
+				"2-5": {
+					"type": "choice",
+					"text": "（枫的睫毛在夕阳里投下很细的阴影。你捏着笔，叶子上只有很小的一片空白。）",
+					"options": [
+						{
+							"text": "写下——「谢谢你」",
+							"next": "2-5a",
+							"set_variable": {
+								"fuu_favor": 3,
+								"flag_wrote_thanks": true
+							}
+						},
+						{
+							"text": "写下——「明年也一起来吧」",
+							"next": "2-5b",
+							"set_variable": {
+								"fuu_favor": 3,
+								"flag_wrote_next_year": true
+							}
+						}
+					]
+				},
+				"2-5a": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "笔尖很细，叶子上写不下太多字。你一笔一划写完，墨迹在叶脉上洇开了一点点。枫接过去，对着光看。",
+					"next": "2-5aa"
+				},
+				"2-5aa": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "「谢谢你」。三个字写了快一分钟——你是用毛笔写的吗？",
+					"next": "2-6"
+				},
+				"2-5b": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "笔尖在叶子上有点涩。写完最后一个「吧」字的时候，叶子的边缘碎了一点。枫小心翼翼地接过去，捏着叶柄转了半圈。",
+					"next": "2-5bb"
+				},
+				"2-5bb": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "「明年也一起来吧」。你还真是张口就来——好像明年已经写在挂历上了似的。",
+					"next": "2-6"
+				},
+				"2-6": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她嘴上这么说，却把叶子举到眼前看了很久。然后从自己的笔记本里翻出一片叶子——干透的红枫叶，边缘有些碎裂，上面是奶奶的笔迹。",
+					"next": "2-7"
+				},
+				"2-7": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "她把自己的叶子和你的并排放在掌心里。两片叶子，两种笔迹，相隔了大半个世纪。",
+					"next": "2-8"
+				},
+				"2-8": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "其实你说的对。叶子确实会写信。不是飘到天上，也不是等谁来读——是写的人和看的人，都站在同一棵树下。",
+					"next": "2-9"
+				},
+				"2-9": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"text": "她把你那片叶子夹进笔记本最新的一页，合上。然后伸出手——掌心里躺着奶奶那片旧叶子。",
+					"next": "2-10"
+				},
+				"2-10": {
+					"type": "dialogue",
+					"bg": "menu_bg",
+					"character": "fuu_1",
+					"speaker": "枫",
+					"text": "这个给你。交换——你写了新的，旧的归你。你不许嫌旧，它比我还大好几岁呢。",
 					"next": "chapter_end"
 				}
 			}
