@@ -176,15 +176,20 @@ func _on_option_btn_pressed(option_node: String) -> void:
 
 
 func _on_text_panel_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && node["type"] == "dialogue":
+	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && node.get("type") == "dialogue":
 		current_node = next_node
 		node_iteration()
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_right"):
-		current_node = next_node
-		node_iteration()
+	if !event.is_action_pressed("ui_right"):
+		return
+	if esc_panel.visible:
+		return
+	if node.get("type") != "dialogue":
+		return
+	current_node = next_node
+	node_iteration()
 
 
 func _on_continue_btn_pressed() -> void:

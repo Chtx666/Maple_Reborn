@@ -189,7 +189,6 @@ theme_override_fonts/font = ExtResource("4_yudex")
 theme_override_font_sizes/font_size = 32
 text = "开始菜单"
 
-[connection signal="gui_input" from="GamePanel/Background" to="." method="_on_background_gui_input"]
 [connection signal="gui_input" from="GamePanel/TextContainer/TextPanel" to="." method="_on_text_panel_gui_input"]
 [connection signal="pressed" from="EscPanel/HBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="EscPanel/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
